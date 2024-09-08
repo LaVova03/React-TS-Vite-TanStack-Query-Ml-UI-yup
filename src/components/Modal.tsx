@@ -1,4 +1,3 @@
-import "./Modal.css";
 import React, { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
@@ -7,6 +6,11 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import styled from "styled-components";
+
+const Form = styled.form`
+  min-width: 30vw;
+`;
 
 interface ModalProps {
   isModal: boolean;
@@ -36,7 +40,7 @@ function Modal({ isModal, setModal, initialTask, onUpdateTask }: ModalProps) {
 
   return (
     <Dialog open={isModal} onClose={handleClose}>
-      <form onSubmit={handleSubmit} style={{ minWidth: "30vw" }}>
+      <Form onSubmit={handleSubmit}>
         <DialogTitle>Update Task</DialogTitle>
         <DialogContent>
           <DialogContentText>Update the selected task.</DialogContentText>
@@ -55,7 +59,7 @@ function Modal({ isModal, setModal, initialTask, onUpdateTask }: ModalProps) {
           <Button onClick={handleClose}>Cancel</Button>
           <Button type="submit">Update</Button>
         </DialogActions>
-      </form>
+      </Form>
     </Dialog>
   );
 }

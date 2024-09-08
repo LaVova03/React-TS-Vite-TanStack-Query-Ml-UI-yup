@@ -1,11 +1,33 @@
-import "./ToDoHeader.css";
 import { useState } from "react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+
 import Input from "@mui/material/Input";
 import Button from "@mui/material/Button";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import postTodoList from "../../api/postTodoList";
-import ToDoBody from "../ToDoBody/ToDoBody";
+import ToDoBody from "./ToDoBody";
+
+import postTodoList from "../api/postTodoList";
 import * as Yup from "yup";
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: max-content;
+`;
+
+const Section = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+`;
+
+const Title = styled.h1`
+  margin-right: 10px;
+`;
 
 const validationSchema = Yup.object({
   newTodo: Yup.string()
@@ -41,11 +63,11 @@ function ToDoHeader() {
   };
 
   return (
-    <div className="todo-header-wrap">
-      <div>
-        <h2>Add to do list</h2>
-      </div>
-      <div>
+    <Wrapper>
+      <Section>
+        <Title>Add to do list</Title>
+      </Section>
+      <Section>
         <Input
           placeholder={error ? error : "Enter task"}
           style={{ flex: 1 }}
@@ -70,9 +92,9 @@ function ToDoHeader() {
         >
           Add
         </Button>
-      </div>
+      </Section>
       <ToDoBody />
-    </div>
+    </Wrapper>
   );
 }
 
