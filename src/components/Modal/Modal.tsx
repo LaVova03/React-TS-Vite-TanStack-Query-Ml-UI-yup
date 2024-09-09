@@ -6,11 +6,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import styled from "styled-components";
-
-const Form = styled.form`
-  min-width: 30vw;
-`;
+import { Form } from "./Modal.styled";
 
 interface ModalProps {
   isModal: boolean;

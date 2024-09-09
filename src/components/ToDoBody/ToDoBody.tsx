@@ -1,49 +1,14 @@
 import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 
-import getToDoList, { Data } from "../api/getToDoList";
-import putTodoList from "../api/putTodoList";
-import deleteTodoList from "../api/deleteToDoList";
+import getToDoList, { Data } from "../../api/getToDoList";
+import putTodoList from "../../api/putTodoList";
+import deleteTodoList from "../../api/deleteToDoList";
 
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import Modal from "./Modal";
-import styled from "styled-components";
-
-const ListWrap = styled.ul`
-  display: flex;
-  flex-direction: column;
-  width: 70%;
-  background-color: white;
-  margin: 0 auto 40px;
-  padding: 50px;
-  min-height: 60vh;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  box-shadow: 0 0 5px skyblue;
-`;
-
-const List = styled.li`
-  display: flex;
-  justify-content: space-between;
-  list-style: decimal;
-  margin: 10px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid gray;
-`;
-
-const Span = styled.span`
-  font-size: 20px;
-`;
-
-const Check = styled.input`
-  height: 20px;
-  width: 20px;
-  cursor: "pointer";
-`;
+import Modal from "../Modal/Modal";
+import { ListWrap, List, Span, Check } from "./ToDoBody.styled";
 
 function ToDoBody() {
   const queryClient = useQueryClient();

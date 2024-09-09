@@ -1,4 +1,4 @@
-import ToDoHeader from "../components/ToDoHeader";
+import ToDoHeader from "../components/ToDoHeader/ToDoHeader";
 
 function ToDoList() {
   return <ToDoHeader />;

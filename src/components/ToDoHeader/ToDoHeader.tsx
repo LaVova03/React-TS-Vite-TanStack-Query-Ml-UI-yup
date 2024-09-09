@@ -3,31 +3,11 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import Input from "@mui/material/Input";
 import Button from "@mui/material/Button";
-import ToDoBody from "./ToDoBody";
+import ToDoBody from "../ToDoBody/ToDoBody";
 
-import postTodoList from "../api/postTodoList";
+import postTodoList from "../../api/postTodoList";
 import * as Yup from "yup";
-import styled from "styled-components";
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: max-content;
-`;
-
-const Section = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  height: 60px;
-`;
-
-const Title = styled.h1`
-  margin-right: 10px;
-`;
+import { Wrapper, Section, Title } from "./ToDoHeader.styled";
 
 const validationSchema = Yup.object({
   newTodo: Yup.string()
